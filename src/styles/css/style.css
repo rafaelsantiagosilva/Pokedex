@@ -47,4 +47,18 @@ main {
   max-height: 100%;
   width: 17.3rem;
   height: 26rem;
+  position: relative;
+}
+
+.pokemon-image {
+  background-color: #fff;
+  width: 11rem;
+  height: 7.2rem;
+  position: absolute;
+  top: 6.8rem;
+  left: 2.5rem;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #7a868f;
+  border-radius: 5px;
 }
