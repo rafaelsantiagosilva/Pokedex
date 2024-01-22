@@ -5,9 +5,18 @@
   list-style: none;
 }
 
+@media screen and (min-width: 500px) {
+  .content {
+    justify-content: center;
+  }
+}
 @font-face {
-  font-family: "PixelifySans";
+  font-family: "PixelAlpha";
   src: url("../../fonts/PixelifySans.ttf");
+}
+@font-face {
+  font-family: "PixelNumber";
+  src: url("../../fonts/VCR-OSD-MONO.ttf");
 }
 @font-face {
   font-family: "Pokemon";
@@ -16,11 +25,6 @@
 @font-face {
   font-family: "Roboto";
   src: url("../../fonts/Roboto-Medium.ttf");
-}
-@media screen and (min-width: 500px) {
-  .content {
-    justify-content: center;
-  }
 }
 html {
   height: 100%;
@@ -61,6 +65,29 @@ main {
   justify-content: center;
 }
 
+.footer {
+  text-align: center;
+  padding: 1em;
+  font-family: "Roboto", sans-serif;
+  margin-top: auto;
+}
+
+@font-face {
+  font-family: "PixelAlpha";
+  src: url("../../fonts/PixelifySans.ttf");
+}
+@font-face {
+  font-family: "PixelNumber";
+  src: url("../../fonts/VCR-OSD-MONO.ttf");
+}
+@font-face {
+  font-family: "Pokemon";
+  src: url("../../fonts/Pokemon.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../fonts/Roboto-Medium.ttf");
+}
 .pokedex {
   background-image: url("../../images/pokedex.png");
   background-repeat: no-repeat;
@@ -87,6 +114,7 @@ main {
   border-style: solid;
   border-color: #7a868f;
   border-radius: 5px;
+  cursor: grab;
 }
 
 .pokemon-image > .image {
@@ -97,9 +125,42 @@ main {
   margin: auto;
 }
 
-.footer {
-  text-align: center;
-  padding: 1em;
-  font-family: "Roboto", sans-serif;
-  margin-top: auto;
+.pokemon-identifier {
+  width: 11rem;
+  position: absolute;
+  top: 16rem;
+  left: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 3px;
+  padding-top: 3px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+}
+
+.pokemon-name {
+  font-family: "PixelAlpha", monospace;
+  font-weight: 600;
+  background-color: #f4efef;
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding-top: 3px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+}
+
+.pokemon-id {
+  font-family: "PixelNumber", monospace;
+  line-height: normal;
+  background-color: #f4efef;
+  border: 1px solid #000;
+  border-radius: 3px;
+  width: 3rem;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  padding-left: 5px;
 }
