@@ -47,7 +47,7 @@ body {
   color: #ffc708;
   text-shadow: -2px 2px 0px #1a3a7a;
   font-family: "Pokemon", sans-serif;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.5rem;
   -webkit-text-stroke-color: #395db3;
   -webkit-text-stroke-width: 0.5px;
   text-align: center;
@@ -75,6 +75,9 @@ main {
 
 .pokemon-image {
   background-color: #fff;
+  background-image: url(../../images/backgrounds/forest.png);
+  background-position: center;
+  background-size: cover;
   width: 12rem;
   height: 8rem;
   position: absolute;
@@ -84,6 +87,14 @@ main {
   border-style: solid;
   border-color: #7a868f;
   border-radius: 5px;
+}
+
+.pokemon-image > .image {
+  max-width: 90%;
+  max-height: 90%;
+  padding-top: 5px;
+  display: block;
+  margin: auto;
 }
 
 .footer {
