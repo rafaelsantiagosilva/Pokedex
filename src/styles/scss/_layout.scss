@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 html {
 	height: 100%;
@@ -37,6 +37,51 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.buttons {
+	position: absolute;
+	left: 10rem;
+	top: 3.5rem;
+}
+
+.btn {
+	background-color: $btnBackgroundColor;
+	color: $btnColor;
+	cursor: pointer;
+	font-weight: 600;
+	border: 2px solid #090c17;
+	border-radius: 5px;
+	padding: {
+		left: 0.4rem;
+		right: 0.4rem;
+		top: 0.1rem;
+		bottom: 0.1rem;
+	}
+}
+
+#btn-before {
+	box-shadow: $btnLeftShadow;
+}
+
+#btn-before:active {
+	box-shadow: none;
+}
+
+#btn-next {
+	box-shadow: $btnRightShadow;
+}
+
+#btn-next:active {
+	box-shadow: none;
+}
+
+.btn:hover {
+	background-color: $btnBackgroundHover;
+}
+
+.btn:active {
+	box-shadow: none;
 }
 
 .footer {

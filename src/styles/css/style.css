@@ -7,7 +7,10 @@
 
 @media screen and (min-width: 500px) {
   .content {
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 90vh;
   }
 }
 @font-face {
@@ -48,7 +51,7 @@ body {
 }
 
 .main-title {
-  color: #e4d314;
+  color: #eac11c;
   text-shadow: -4px 3px 0px #1a3a7a;
   font-family: "Pokemon", sans-serif;
   letter-spacing: 0.6rem;
@@ -63,6 +66,49 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.buttons {
+  position: absolute;
+  left: 10rem;
+  top: 3.5rem;
+}
+
+.btn {
+  background-color: #0f26b8;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  border: 2px solid #090c17;
+  border-radius: 5px;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+
+#btn-before {
+  box-shadow: -2px 2px 0.1px #090c17;
+}
+
+#btn-before:active {
+  box-shadow: none;
+}
+
+#btn-next {
+  box-shadow: 2px 2px 0.1px #090c17;
+}
+
+#btn-next:active {
+  box-shadow: none;
+}
+
+.btn:hover {
+  background-color: #0f208f;
+}
+
+.btn:active {
+  box-shadow: none;
 }
 
 .footer {
@@ -163,4 +209,12 @@ main {
   padding-right: 5px;
   padding-bottom: 3px;
   padding-left: 5px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
