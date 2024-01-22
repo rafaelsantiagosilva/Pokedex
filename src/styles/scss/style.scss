@@ -25,11 +25,11 @@ body {
 
 .main-title {
 	color: $titleColor;
-	text-shadow: -2px 2px 0px $titleShadow;
+	text-shadow: -4px 3px 0px $titleShadow;
 	font-family: "Pokemon", sans-serif;
-	letter-spacing: 0.5rem;
+	letter-spacing: 0.6rem;
 	-webkit-text-stroke-color: $titleBorderColor;
-	-webkit-text-stroke-width: 0.5px;
+	-webkit-text-stroke-width: 1px;
 	text-align: center;
 	font-size: $titleSize;
 	padding: 0;

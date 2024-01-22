@@ -44,12 +44,12 @@ body {
 }
 
 .main-title {
-  color: #ffc708;
-  text-shadow: -2px 2px 0px #1a3a7a;
+  color: #e4d314;
+  text-shadow: -4px 3px 0px #1a3a7a;
   font-family: "Pokemon", sans-serif;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.6rem;
   -webkit-text-stroke-color: #395db3;
-  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-width: 1px;
   text-align: center;
   font-size: 4rem;
   padding: 0;
