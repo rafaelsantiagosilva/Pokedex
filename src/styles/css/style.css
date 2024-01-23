@@ -7,10 +7,7 @@
 
 @media screen and (min-width: 500px) {
   .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 90vh;
+    justify-content: center;
   }
 }
 @font-face {
@@ -85,6 +82,8 @@ main {
   padding-right: 0.4rem;
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
+  max-width: 100%;
+  width: 10rem;
 }
 
 #btn-before {
