@@ -1,4 +1,6 @@
 @import "_fonts";
+// Layout
+$docBackgroundColor: #fdfcf1;
 
 // Fonts
 $pokemonFont: "Pokemon";
@@ -18,3 +20,8 @@ $btnBackgroundColor: #0f26b8;
 $btnBackgroundHover: #0f208f;
 $btnRightShadow: 2px 2px 0.1px #090c17;
 $btnLeftShadow: -2px 2px 0.1px #090c17;
+
+// Pokemon Identifier
+$pokemonIdentifierChildrenShadow: 3px 3px 1px #000000;
+
+// Tipos de Pokemon

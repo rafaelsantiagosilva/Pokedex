@@ -6,7 +6,7 @@ html {
 }
 
 body {
-	background-color: rgb(253, 252, 241);
+	background-color: $docBackgroundColor;
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
@@ -14,7 +14,7 @@ body {
 
 .content {
 	margin-top: 2rem;
-	background-color: rgb(253, 252, 241);
+	background-color: $docBackgroundColor;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
