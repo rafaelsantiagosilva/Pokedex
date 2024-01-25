@@ -17,7 +17,6 @@
 
 		<!-- Local Assets -->
 		<link rel="stylesheet" href="./src/styles/css/style.css" />
-		<script src="./src/scripts/libs/jquery.min.js"></script>
 		<script
 			src="./src/scripts/dist/main.js"
 			type="text/javascript"
@@ -43,24 +42,27 @@
 						<img alt="" class="image" id="pokemon-image" draggable="false" />
 					</div>
 					<div class="pokemon-identifier">
-						<span class="pokemon-name" id="pokemon-name"></span>
-						<span class="pokemon-id" id="pokemon-id">#001</span>
+						<span class="pokemon-name" id="pokemon-name">Loading...</span>
+						<span class="pokemon-id" id="pokemon-id">#000</span>
 					</div>
 					<section class="pokemon-details">
 						<header class="pokemon-details__header">
 							<h2 class="pokemon-details__title">Informations</h2>
 						</header>
 						<section class="pokemon-details__body">
-							<ul class="pokemon-types" id="pokemon-types"></ul>
+							<ul class="pokemon-types" id="pokemon-types">
+								<li class="pokemon-type">Undefined</li>
+								<li class="pokemon-type">Undefined</li>
+							</ul>
 							<section class="pokemon-body">
 								<ul>
 									<li>
 										<h3>Weight:</h3>
-										<p id="pokemon-weight"></p>
+										<p id="pokemon-weight">0.0</p>
 									</li>
 									<li>
 										<h3>Height:</h3>
-										<p id="pokemon-height"></p>
+										<p id="pokemon-height">0.0</p>
 									</li>
 								</ul>
 							</section>
@@ -72,27 +74,27 @@
 									<table class="stats-table">
 										<tr class="stats-table__row">
 											<th class="stat-name">HP:</th>
-											<td class="stat-value"></td>
+											<td class="stat-value">0</td>
 										</tr>
 										<tr class="stats-table__row">
 											<th class="stat-name">Attack:</th>
-											<td class="stat-value"></td>
+											<td class="stat-value">0</td>
 										</tr>
 										<tr class="stats-table__row">
 											<th class="stat-name">Defense:</th>
-											<td class="stat-value"></td>
+											<td class="stat-value">0</td>
 										</tr>
 										<tr class="stats-table__row">
 											<th class="stat-name">Sp.Attack:</th>
-											<td class="stat-value"></td>
+											<td class="stat-value">0</td>
 										</tr>
 										<tr class="stats-table__row">
 											<th class="stat-name">Sp.Defense:</th>
-											<td class="stat-value"></td>
+											<td class="stat-value">0</td>
 										</tr>
 										<tr class="stats-table__row">
 											<th class="stat-name">Speed:</th>
-											<td class="stat-value"></td>
+											<td class="stat-value">0</td>
 										</tr>
 									</table>
 								</section>

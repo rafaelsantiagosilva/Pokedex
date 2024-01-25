@@ -1,4 +1,5 @@
 "use strict";
+var _a, _b;
 class Converter {
     firstLetterOfStringToUpperCase(string) {
         let name = string[0].toUpperCase();
@@ -39,11 +40,31 @@ const POKEMON_WEIGHT_DOM = document.getElementById("pokemon-weight");
 const POKEMON_HEIGHT_DOM = document.getElementById("pokemon-height");
 const POKEMON_STATS_DOM = document.querySelectorAll("td.stat-value");
 const converter = new Converter();
+const BUTTONS_SOUND = new Audio("./src/sounds/beep-8bits.mp3");
+function playButtonSound() {
+    BUTTONS_SOUND.play();
+}
 function modifyPokeApiUrl(step) {
     pokemonId += step;
     pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
 }
+function eventButtons(condition, stepIf, stepElse) {
+    if (pokemonId == condition) {
+        modifyPokeApiUrl(stepIf);
+        loadPokemon(pokeapiUrl);
+    }
+    else {
+        modifyPokeApiUrl(stepElse);
+        loadPokemon(pokeapiUrl);
+    }
+}
 function addTypesToListDom(types) {
+    if ((POKEMON_TYPE_LIST_DOM === null || POKEMON_TYPE_LIST_DOM === void 0 ? void 0 : POKEMON_TYPE_LIST_DOM.children.length) != 0) {
+        while (POKEMON_TYPE_LIST_DOM === null || POKEMON_TYPE_LIST_DOM === void 0 ? void 0 : POKEMON_TYPE_LIST_DOM.firstChild) {
+            let otherTypes = POKEMON_TYPE_LIST_DOM.firstChild;
+            POKEMON_TYPE_LIST_DOM.removeChild(otherTypes);
+        }
+    }
     types.forEach((type) => {
         // @ts-ignore
         let typeName = type.type.name;
@@ -63,7 +84,7 @@ function addStatsToTableDom(stats) {
         POKEMON_STATS_DOM[i].innerText = stats[i].base_stat;
     }
 }
-function loadPokemon() {
+function loadPokemon(pokeapiUrl) {
     fetch(pokeapiUrl)
         .then((response) => response.json())
         .then((response) => {
@@ -94,5 +115,13 @@ function loadPokemon() {
     });
 }
 // @ts-ignore
-document.addEventListener("onload", loadPokemon());
+document.addEventListener("onload", loadPokemon(pokeapiUrl));
+(_a = document.getElementById("btn-before")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    playButtonSound();
+    eventButtons(1, 150, -1);
+});
+(_b = document.getElementById("btn-next")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    playButtonSound();
+    eventButtons(151, -150, 1);
+});
 //# sourceMappingURL=main.js.map

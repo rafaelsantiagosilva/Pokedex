@@ -58,13 +58,41 @@ const POKEMON_STATS_DOM: NodeList | null =
 	document.querySelectorAll("td.stat-value");
 
 const converter: Converter = new Converter();
+const BUTTONS_SOUND: HTMLAudioElement = new Audio(
+	"./src/sounds/beep-8bits.mp3"
+);
+
+function playButtonSound(): void {
+	BUTTONS_SOUND.play();
+}
 
 function modifyPokeApiUrl(step: number) {
 	pokemonId += step;
 	pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
 }
 
+function eventButtons(
+	condition: number,
+	stepIf: number,
+	stepElse: number
+): void {
+	if (pokemonId == condition) {
+		modifyPokeApiUrl(stepIf);
+		loadPokemon(pokeapiUrl);
+	} else {
+		modifyPokeApiUrl(stepElse);
+		loadPokemon(pokeapiUrl);
+	}
+}
+
 function addTypesToListDom(types: []): void {
+	if (POKEMON_TYPE_LIST_DOM?.children.length != 0) {
+		while (POKEMON_TYPE_LIST_DOM?.firstChild) {
+			let otherTypes = POKEMON_TYPE_LIST_DOM.firstChild;
+			POKEMON_TYPE_LIST_DOM.removeChild(otherTypes);
+		}
+	}
+
 	types.forEach((type) => {
 		// @ts-ignore
 		let typeName = type.type.name;
@@ -91,7 +119,7 @@ function addStatsToTableDom(stats: []): void {
 	}
 }
 
-function loadPokemon() {
+function loadPokemon(pokeapiUrl: string): void {
 	fetch(pokeapiUrl)
 		.then((response) => response.json())
 		.then((response) => {
@@ -129,4 +157,13 @@ function loadPokemon() {
 }
 
 // @ts-ignore
-document.addEventListener("onload", loadPokemon());
+document.addEventListener("onload", loadPokemon(pokeapiUrl));
+document.getElementById("btn-before")?.addEventListener("click", () => {
+	playButtonSound();
+	eventButtons(1, 150, -1);
+});
+
+document.getElementById("btn-next")?.addEventListener("click", () => {
+	playButtonSound();
+	eventButtons(151, -150, 1);
+});
