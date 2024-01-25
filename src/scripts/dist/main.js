@@ -33,6 +33,7 @@ class Converter {
 let pokemonId = 1;
 let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
 const POKEMON_IMAGE = document.getElementById("pokemon-image");
+const POKEMON_BACKGROUND_IMAGE_DOM = document.getElementById("pokemon-image-background");
 const POKEMON_NAME_DOM = document.getElementById("pokemon-name");
 const POKEMON_ID_DOM = document.getElementById("pokemon-id");
 const POKEMON_TYPE_LIST_DOM = document.getElementById("pokemon-types");
@@ -57,6 +58,44 @@ function eventButtons(condition, stepIf, stepElse) {
         modifyPokeApiUrl(stepElse);
         loadPokemon(pokeapiUrl);
     }
+}
+function changeBackgroundPokemonImage(type) {
+    let backgroundImg = "grove";
+    if (type == "water") {
+        backgroundImg = "beach";
+    }
+    else if (type == "rock") {
+        backgroundImg = "cave";
+    }
+    else if (type == "ground") {
+        backgroundImg = "desert";
+    }
+    else if (type == "bug" || type == "grass") {
+        backgroundImg = "forest";
+    }
+    else if (type == "normal" || type == "flying" || type == "fairy") {
+        backgroundImg = "grove";
+    }
+    else if (type == "fighting" ||
+        type == "steel" ||
+        type == "electric" ||
+        type == "fire") {
+        backgroundImg = "gym";
+    }
+    else if (type == "poison" ||
+        type == "ghost" ||
+        type == "psychic" ||
+        type == "dark") {
+        backgroundImg = "mind-space";
+    }
+    else if (type == "dragon") {
+        backgroundImg = "ocean";
+    }
+    else if (type == "ice") {
+        backgroundImg = "snow-forest";
+    }
+    // @ts-ignore
+    POKEMON_BACKGROUND_IMAGE_DOM.style.backgroundImage = `url('./src/images/backgrounds/${backgroundImg}.png')`;
 }
 function addTypesToListDom(types) {
     if ((POKEMON_TYPE_LIST_DOM === null || POKEMON_TYPE_LIST_DOM === void 0 ? void 0 : POKEMON_TYPE_LIST_DOM.children.length) != 0) {
@@ -101,6 +140,8 @@ function loadPokemon(pokeapiUrl) {
             converter.pokemonAddZerosAndHashtagToId(pokemonId);
         let pokemonTypes = response.types;
         addTypesToListDom(pokemonTypes);
+        // changeBackgroundPokemonImage(pokemonTypes.type[0]);
+        changeBackgroundPokemonImage(pokemonTypes[0].type.name);
         let pokemonWeight = response.weight;
         // @ts-ignore
         POKEMON_WEIGHT_DOM.innerText = converter.formatPokemonWeight(pokemonWeight);

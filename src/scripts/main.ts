@@ -39,6 +39,9 @@ let pokeapiUrl: string = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
 const POKEMON_IMAGE: HTMLElement | null =
 	document.getElementById("pokemon-image");
 
+const POKEMON_BACKGROUND_IMAGE_DOM: HTMLElement | null =
+	document.getElementById("pokemon-image-background");
+
 const POKEMON_NAME_DOM: HTMLElement | null =
 	document.getElementById("pokemon-name");
 
@@ -83,6 +86,42 @@ function eventButtons(
 		modifyPokeApiUrl(stepElse);
 		loadPokemon(pokeapiUrl);
 	}
+}
+
+function changeBackgroundPokemonImage(type: string): void {
+	let backgroundImg: string = "grove";
+	if (type == "water") {
+		backgroundImg = "beach";
+	} else if (type == "rock") {
+		backgroundImg = "cave";
+	} else if (type == "ground") {
+		backgroundImg = "desert";
+	} else if (type == "bug" || type == "grass") {
+		backgroundImg = "forest";
+	} else if (type == "normal" || type == "flying" || type == "fairy") {
+		backgroundImg = "grove";
+	} else if (
+		type == "fighting" ||
+		type == "steel" ||
+		type == "electric" ||
+		type == "fire"
+	) {
+		backgroundImg = "gym";
+	} else if (
+		type == "poison" ||
+		type == "ghost" ||
+		type == "psychic" ||
+		type == "dark"
+	) {
+		backgroundImg = "mind-space";
+	} else if (type == "dragon") {
+		backgroundImg = "ocean";
+	} else if (type == "ice") {
+		backgroundImg = "snow-forest";
+	}
+
+	// @ts-ignore
+	POKEMON_BACKGROUND_IMAGE_DOM.style.backgroundImage = `url('./src/images/backgrounds/${backgroundImg}.png')`;
 }
 
 function addTypesToListDom(types: []): void {
@@ -139,6 +178,9 @@ function loadPokemon(pokeapiUrl: string): void {
 
 			let pokemonTypes = response.types;
 			addTypesToListDom(pokemonTypes);
+
+			// changeBackgroundPokemonImage(pokemonTypes.type[0]);
+			changeBackgroundPokemonImage(pokemonTypes[0].type.name);
 
 			let pokemonWeight = response.weight;
 			// @ts-ignore
