@@ -45,12 +45,15 @@ function loadPokemon() {
 		.then((response) => response.json())
 		.then((response) => {
 			const converter: Converter = new Converter();
+			// @ts-ignore
 			POKEMON_NAME_DOM.innerText = converter.pokemonNameFirstLetterToUpperCase(
 				response.name
 			);
+			// @ts-ignore
 			POKEMON_ID_DOM.innerText = converter.pokemonAddZerosAndHashtagToId(
 				response.id
 			);
+			// @ts-ignore
 			POKEMON_IMAGE.setAttribute(
 				"src",
 				response.sprites.other.dream_world.front_default
@@ -61,4 +64,5 @@ function loadPokemon() {
 		});
 }
 
+// @ts-ignore
 document.addEventListener("onload", loadPokemon());
