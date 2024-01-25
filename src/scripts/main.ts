@@ -24,7 +24,7 @@ class Converter {
 
 	public formatPokemonWeight(weight: number): string {
 		let weightInKg: number = weight / 10;
-		return weightInKg + " Kg";
+		return weightInKg + " kg";
 	}
 
 	public formatPokemonHeight(height: number): string {
@@ -54,6 +54,9 @@ const POKEMON_WEIGHT_DOM: HTMLElement | null =
 const POKEMON_HEIGHT_DOM: HTMLElement | null =
 	document.getElementById("pokemon-height");
 
+const POKEMON_STATS_DOM: NodeList | null =
+	document.querySelectorAll("td.stat-value");
+
 const converter: Converter = new Converter();
 
 function modifyPokeApiUrl(step: number) {
@@ -61,7 +64,7 @@ function modifyPokeApiUrl(step: number) {
 	pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
 }
 
-function addTypesToListDom(types: []) {
+function addTypesToListDom(types: []): void {
 	types.forEach((type) => {
 		// @ts-ignore
 		let typeName = type.type.name;
@@ -78,6 +81,14 @@ function addTypesToListDom(types: []) {
 		// @ts-ignore
 		POKEMON_TYPE_LIST_DOM.appendChild(listItem);
 	});
+}
+
+function addStatsToTableDom(stats: []): void {
+	//  @ts-ignore
+	for (let i = 0; i < POKEMON_STATS_DOM.length; i++) {
+		// @ts-ignore
+		POKEMON_STATS_DOM[i].innerText = stats[i].base_stat;
+	}
 }
 
 function loadPokemon() {
@@ -108,6 +119,9 @@ function loadPokemon() {
 			let pokemonHeight = response.height;
 			// @ts-ignore
 			POKEMON_HEIGHT_DOM.innerText = converter.formatPokemonHeight(pokemonHeight);
+
+			let pokemonStats = response.stats;
+			addStatsToTableDom(pokemonStats);
 		})
 		.catch((error) => {
 			console.error(error);

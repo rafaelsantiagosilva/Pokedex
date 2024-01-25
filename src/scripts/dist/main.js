@@ -22,7 +22,7 @@ class Converter {
     }
     formatPokemonWeight(weight) {
         let weightInKg = weight / 10;
-        return weightInKg + " Kg";
+        return weightInKg + " kg";
     }
     formatPokemonHeight(height) {
         let heightInM = height / 10;
@@ -37,6 +37,7 @@ const POKEMON_ID_DOM = document.getElementById("pokemon-id");
 const POKEMON_TYPE_LIST_DOM = document.getElementById("pokemon-types");
 const POKEMON_WEIGHT_DOM = document.getElementById("pokemon-weight");
 const POKEMON_HEIGHT_DOM = document.getElementById("pokemon-height");
+const POKEMON_STATS_DOM = document.querySelectorAll("td.stat-value");
 const converter = new Converter();
 function modifyPokeApiUrl(step) {
     pokemonId += step;
@@ -54,6 +55,13 @@ function addTypesToListDom(types) {
         // @ts-ignore
         POKEMON_TYPE_LIST_DOM.appendChild(listItem);
     });
+}
+function addStatsToTableDom(stats) {
+    //  @ts-ignore
+    for (let i = 0; i < POKEMON_STATS_DOM.length; i++) {
+        // @ts-ignore
+        POKEMON_STATS_DOM[i].innerText = stats[i].base_stat;
+    }
 }
 function loadPokemon() {
     fetch(pokeapiUrl)
@@ -78,6 +86,8 @@ function loadPokemon() {
         let pokemonHeight = response.height;
         // @ts-ignore
         POKEMON_HEIGHT_DOM.innerText = converter.formatPokemonHeight(pokemonHeight);
+        let pokemonStats = response.stats;
+        addStatsToTableDom(pokemonStats);
     })
         .catch((error) => {
         console.error(error);
