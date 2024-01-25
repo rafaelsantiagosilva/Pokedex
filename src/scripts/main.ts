@@ -1,9 +1,9 @@
 "use strict";
 
 class Converter {
-	public firstLetterOfStringToUpperCase(pokemonName: string): string {
-		let name: string = pokemonName[0].toUpperCase();
-		name += pokemonName.slice(1, pokemonName.length).toLowerCase();
+	public firstLetterOfStringToUpperCase(string: string): string {
+		let name: string = string[0].toUpperCase();
+		name += string.slice(1, string.length).toLowerCase();
 		return name;
 	}
 
@@ -21,6 +21,16 @@ class Converter {
 
 		return id;
 	}
+
+	public formatPokemonWeight(weight: number): string {
+		let weightInKg: number = weight / 10;
+		return weightInKg + " Kg";
+	}
+
+	public formatPokemonHeight(height: number): string {
+		let heightInM: number = height / 10;
+		return heightInM + " m";
+	}
 }
 
 let pokemonId: number = 1;
@@ -37,6 +47,12 @@ const POKEMON_ID_DOM: HTMLElement | null =
 
 const POKEMON_TYPE_LIST_DOM: HTMLElement | null =
 	document.getElementById("pokemon-types");
+
+const POKEMON_WEIGHT_DOM: HTMLElement | null =
+	document.getElementById("pokemon-weight");
+
+const POKEMON_HEIGHT_DOM: HTMLElement | null =
+	document.getElementById("pokemon-height");
 
 const converter: Converter = new Converter();
 
@@ -68,20 +84,30 @@ function loadPokemon() {
 	fetch(pokeapiUrl)
 		.then((response) => response.json())
 		.then((response) => {
+			let pokemonImage = response.sprites.other.dream_world.front_default;
 			// @ts-ignore
-			POKEMON_NAME_DOM.innerText = converter.firstLetterOfStringToUpperCase(
-				response.name
-			);
+			POKEMON_IMAGE.setAttribute("src", pokemonImage);
+
+			let pokemonName = response.name;
 			// @ts-ignore
-			POKEMON_ID_DOM.innerText = converter.pokemonAddZerosAndHashtagToId(
-				response.id
-			);
+			POKEMON_NAME_DOM.innerText =
+				converter.firstLetterOfStringToUpperCase(pokemonName);
+
+			let pokemonId = response.id;
 			// @ts-ignore
-			POKEMON_IMAGE.setAttribute(
-				"src",
-				response.sprites.other.dream_world.front_default
-			);
-			addTypesToListDom(response.types);
+			POKEMON_ID_DOM.innerText =
+				converter.pokemonAddZerosAndHashtagToId(pokemonId);
+
+			let pokemonTypes = response.types;
+			addTypesToListDom(pokemonTypes);
+
+			let pokemonWeight = response.weight;
+			// @ts-ignore
+			POKEMON_WEIGHT_DOM.innerText = converter.formatPokemonWeight(pokemonWeight);
+
+			let pokemonHeight = response.height;
+			// @ts-ignore
+			POKEMON_HEIGHT_DOM.innerText = converter.formatPokemonHeight(pokemonHeight);
 		})
 		.catch((error) => {
 			console.error(error);
