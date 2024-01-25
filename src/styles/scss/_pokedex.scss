@@ -80,6 +80,8 @@
 		left: 5px;
 	}
 	box-shadow: $pokemonIdentifierChildrenShadow;
+	max-width: fit-content;
+	min-width: 5rem;
 }
 
 .pokemon-id {

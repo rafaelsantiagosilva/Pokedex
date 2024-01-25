@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="./src/styles/css/style.css" />
 		<script src="./src/scripts/libs/jquery.min.js"></script>
 		<script
-			src="./src/scripts/javascript/main.js"
+			src="./src/scripts/dist/main.js"
 			type="text/javascript"
 			defer
 		></script>
@@ -39,17 +39,17 @@
 							<span class="material-symbols-outlined"> navigate_next </span>
 						</button>
 					</div>
-					<div class="pokemon-image">
+					<div class="pokemon-image" id="pokemon-image-background">
 						<img
-							src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
 							alt=""
 							class="image"
+							id="pokemon-image"
 							draggable="false"
 						/>
 					</div>
 					<div class="pokemon-identifier">
-						<span class="pokemon-name">Bulbasaur</span>
-						<span class="pokemon-id">#001</span>
+						<span class="pokemon-name" id="pokemon-name"></span>
+						<span class="pokemon-id" id="pokemon-id">#001</span>
 					</div>
 					<section class="pokemon-details">
 						<header class="pokemon-details__header">
