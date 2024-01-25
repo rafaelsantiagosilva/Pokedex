@@ -73,50 +73,6 @@ main {
   justify-content: center;
 }
 
-.buttons {
-  position: absolute;
-  left: 10rem;
-  top: 3.5rem;
-}
-
-.btn {
-  background-color: #0f26b8;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 600;
-  border: 2px solid #090c17;
-  border-radius: 5px;
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-  max-width: 100%;
-}
-
-#btn-before {
-  box-shadow: -2px 2px 0.1px #090c17;
-}
-
-#btn-before:active {
-  box-shadow: none;
-}
-
-#btn-next {
-  box-shadow: 2px 2px 0.1px #090c17;
-}
-
-#btn-next:active {
-  box-shadow: none;
-}
-
-.btn:hover {
-  background-color: #0f208f;
-}
-
-.btn:active {
-  box-shadow: none;
-}
-
 .footer {
   text-align: center;
   padding: 1em;
@@ -167,6 +123,50 @@ main {
   border-color: #7a868f;
   border-radius: 5px;
   cursor: grab;
+}
+
+.buttons {
+  position: absolute;
+  left: 10rem;
+  top: 3.5rem;
+}
+
+.btn {
+  background-color: #0f26b8;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  border: 2px solid #090c17;
+  border-radius: 5px;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  max-width: 3rem;
+}
+
+#btn-before {
+  box-shadow: -2px 2px 0.1px #090c17;
+}
+
+#btn-before:active {
+  box-shadow: none;
+}
+
+#btn-next {
+  box-shadow: 2px 2px 0.1px #090c17;
+}
+
+#btn-next:active {
+  box-shadow: none;
+}
+
+.btn:hover {
+  background-color: #0f208f;
+}
+
+.btn:active {
+  box-shadow: none;
 }
 
 .pokemon-image > .image {
@@ -287,75 +287,75 @@ main {
   font-family: "PixelNumber";
 }
 
-.bugType {
+.bug {
   background-color: #91c12f;
 }
 
-.grassType {
+.grass {
   background-color: #63bc5a;
 }
 
-.fairyType {
+.fairy {
   background-color: #ec8fe6;
 }
 
-.normaltype {
+.normal {
   background-color: #919aa2;
 }
 
-.dragonType {
+.dragon {
   background-color: #0b6dc3;
 }
 
-.psycType {
+.psyc {
   background-color: #fa7179;
 }
 
-.ghostType {
+.ghost {
   background-color: #5269ad;
 }
 
-.groundType {
+.ground {
   background-color: #d97845;
 }
 
-.steelType {
+.steel {
   background-color: #5a8ea2;
 }
 
-.fireType {
+.fire {
   background-color: #f16c2e;
 }
 
-.flyingType {
+.flying {
   background-color: #7094d3;
 }
 
-.iceType {
+.ice {
   background-color: #73cec0;
 }
 
-.eletricType {
+.eletric {
   background-color: #f4d23c;
 }
 
-.rockType {
+.rock {
   background-color: #c5b78c;
 }
 
-.darkType {
+.dark {
   background-color: #5a5465;
 }
 
-.waterType {
+.water {
   background-color: #5090d6;
 }
 
-.figthingType {
+.fighting {
   background-color: #ce416b;
 }
 
-.poisonType {
+.poison {
   background-color: #b567ce;
 }
 
