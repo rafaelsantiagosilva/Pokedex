@@ -33,7 +33,15 @@ class Converter {
 	}
 }
 
-let pokemonId: number = 1;
+let pokemonId: number = 0;
+// localStorage.clear();
+
+if (localStorage.length === 0) {
+	pokemonId = 1;
+} else {
+	pokemonId = Number(localStorage.getItem("pokemonId"));
+}
+
 let pokeapiUrl: string = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
 
 const POKEMON_IMAGE: HTMLElement | null =
@@ -72,6 +80,7 @@ function playButtonSound(): void {
 function modifyPokeApiUrl(step: number) {
 	pokemonId += step;
 	pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+	localStorage.setItem("pokemonId", pokemonId.toString());
 }
 
 function eventButtons(

@@ -30,7 +30,14 @@ class Converter {
         return heightInM + " m";
     }
 }
-let pokemonId = 1;
+let pokemonId = 0;
+// localStorage.clear();
+if (localStorage.length === 0) {
+    pokemonId = 1;
+}
+else {
+    pokemonId = Number(localStorage.getItem("pokemonId"));
+}
 let pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
 const POKEMON_IMAGE = document.getElementById("pokemon-image");
 const POKEMON_BACKGROUND_IMAGE_DOM = document.getElementById("pokemon-image-background");
@@ -48,6 +55,7 @@ function playButtonSound() {
 function modifyPokeApiUrl(step) {
     pokemonId += step;
     pokeapiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+    localStorage.setItem("pokemonId", pokemonId.toString());
 }
 function eventButtons(condition, stepIf, stepElse) {
     if (pokemonId == condition) {
